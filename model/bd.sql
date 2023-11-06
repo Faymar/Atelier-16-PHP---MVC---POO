@@ -1,0 +1,18 @@
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  nom VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE contacts (
+  id INT NOT NULL AUTO_INCREMENT,
+  idUser INT NOT NULL,
+  nom VARCHAR(255) NOT NULL,
+  prenom VARCHAR(255) NOT NULL,
+  telephone VARCHAR(255) NOT NULL UNIQUE,
+  estfav boolean NOT NULL default false,
+  PRIMARY KEY (id),
+  FOREIGN KEY (idUser) REFERENCES users (id)
+);
